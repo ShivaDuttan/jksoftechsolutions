@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@theme {
+  --color-primary: #0B5ED7;
+  --color-primary-dark: #063B7A;
+  --color-navy: #071A33;
+  --color-light-blue: #EAF3FF;
+  --color-border-light: #D9E6F5;
+
+  --font-sans: 'Manrope', 'Inter', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  body {
+    @apply font-sans text-slate-700 bg-[#F7FAFF];
+    overflow-x: hidden;
+    width: 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  /* Phone Input Premium Styling */
+  .PhoneInput {
+    @apply flex items-center w-full px-4 py-3 rounded-lg border border-slate-300 focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all bg-slate-50 focus-within:bg-white;
+  }
+  
+  .PhoneInputInput {
+    @apply flex-1 bg-transparent border-none outline-none text-slate-700 min-w-0 p-0 text-base;
+  }
+  
+  .PhoneInputCountry {
+    @apply relative flex items-center pr-3 mr-3 border-r border-slate-200 shrink-0;
+  }
+  
+  .PhoneInputCountrySelect {
+    @apply absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10;
+  }
+  
+  .PhoneInputCountryIcon {
+    @apply w-6 h-4 flex items-center justify-center overflow-hidden rounded-[2px] shadow-sm;
+  }
+  
+  .PhoneInputCountryIconImg {
+    @apply w-full h-full object-cover;
+  }
+  
+  .PhoneInputCountryIcon--border {
+    @apply border-none bg-transparent;
+  }
+  
+  .PhoneInputCountrySelectArrow {
+    @apply ml-2 w-2 h-2 border-r-[1.5px] border-b-[1.5px] border-slate-400 transform rotate-45 mb-1 transition-colors opacity-70;
+  }
+  
+  .PhoneInputCountrySelect:focus + .PhoneInputCountryIcon + .PhoneInputCountrySelectArrow {
+    @apply border-primary opacity-100;
+  }
+  
+  /* Custom Scrollbar for Country Select */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-slate-200 rounded-full hover:bg-slate-300 transition-colors;
+  }
+}
